@@ -1,7 +1,9 @@
 package org.nan.controller;
 
+import org.nan.service.CreateExceptionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,10 @@ import java.util.List;
 @RestController
 public class EchoController {
 	Logger logger = LoggerFactory.getLogger(EchoController.class);
+
+	@Autowired
+	CreateExceptionService expService;
+
 	@RequestMapping(value="/")
 	public String root() {
 		return "It Worked";
@@ -26,10 +32,9 @@ public class EchoController {
 
 	@GetMapping(path="/createError")
 	public String createRunTimeException() {
-		List emptyArray = null;
 		try {
-			emptyArray.size();
-		} catch (RuntimeException ex) {
+			expService.createException();
+		} catch (Exception ex) {
 			logger.error(ex.getMessage(), ex);
 		}
 		return "Exception logged";
