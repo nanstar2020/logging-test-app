@@ -78,5 +78,13 @@ public class EchoController {
 
 		return "String created: " + longLine;
 	}
-	
+
+	@GetMapping(path="/logShortLine")
+	public String createShortLine() {
+		String shortLine = "This is a short line";
+		logger.info(shortLine);
+		logger.info("Lenght of the String " + shortLine.length() + " time = " + System.currentTimeMillis());
+
+		return "String createed: " + shortLine;
+	}
 }
