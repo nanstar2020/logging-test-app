@@ -61,5 +61,22 @@ public class EchoController {
 		}
 		return "Exception logged";
 	}
+
+	@GetMapping(path="/logLongLine")
+	public String createLongLine() {
+
+		//create a string longer than 256k
+		StringBuilder builder = new StringBuilder();
+		for(int i = 0; i < 257; i++) {
+			for(int j = 0; j < 1024; j++ ) {
+				builder.append("X");
+			}
+		}
+		String longLine = builder.toString();
+		logger.info("This is the long string " + longLine);
+		logger.info("Length of the String " + longLine.length() + " time = "  + System.currentTimeMillis());
+
+		return "String created: " + longLine;
+	}
 	
 }
