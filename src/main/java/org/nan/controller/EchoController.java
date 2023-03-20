@@ -106,6 +106,6 @@ public class EchoController {
 	@GettMapping("/testRetry")
 	public String testRetry() {
 		expService.createException();
-		return "Done"
+		return "Done";
 	}
 }
