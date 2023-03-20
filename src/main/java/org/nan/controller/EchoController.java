@@ -103,7 +103,7 @@ public class EchoController {
 				sb.toString(), HttpStatus.OK);
 	}
 	
-	@GettMapping("/testRetry")
+	@GetMapping("/testRetry")
 	public String testRetry() {
 		expService.createException();
 		return "Done";
