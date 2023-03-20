@@ -102,4 +102,10 @@ public class EchoController {
 		return new ResponseEntity<String>(
 				sb.toString(), HttpStatus.OK);
 	}
+	
+	@GettMapping("/testRetry")
+	public String testRetry() {
+		expService.createException();
+		return "Done"
+	}
 }
