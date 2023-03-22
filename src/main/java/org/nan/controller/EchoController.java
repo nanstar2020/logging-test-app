@@ -107,12 +107,20 @@ public class EchoController {
 	@GetMapping("/testRetry")
 	public ResponseEntity testRetry() {
 		logger.info("Enter testRetry at " + LocalTime.now());
-		try {
-			Thread.sleep(5000);
-		} catch (Exception e) {
-
-		}
+//		try {
+//			Thread.sleep(5000);
+//		} catch (Exception e) {
+//
+//		}
 		logger.info("Exist testRetry at " + LocalTime.now());
 		return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+	}
+
+	@GetMapping("/testRetry2")
+	public ResponseEntity testRetry2() {
+		logger.info("Enter testRetry at " + LocalTime.now());
+
+		logger.info("Exist testRetry at " + LocalTime.now());
+		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).build();
 	}
 }
