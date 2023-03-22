@@ -105,7 +105,7 @@ public class EchoController {
 	}
 	
 	@GetMapping("/testRetry")
-	public String testRetry() {
+	public ResponseEntity testRetry() {
 		logger.info("Enter testRetry at " + LocalTime.now());
 		try {
 			Thread.sleep(5000);
@@ -113,6 +113,6 @@ public class EchoController {
 
 		}
 		logger.info("Exist testRetry at " + LocalTime.now());
-		return "Done";
+		return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
 	}
 }
