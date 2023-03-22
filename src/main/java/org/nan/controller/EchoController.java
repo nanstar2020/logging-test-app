@@ -105,6 +105,11 @@ public class EchoController {
 	
 	@GetMapping("/testRetry")
 	public String testRetry() {
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {
+			
+		}
 		expService.createException();
 		return "Done";
 	}
