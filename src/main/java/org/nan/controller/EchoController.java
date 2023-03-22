@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 
@@ -105,12 +106,13 @@ public class EchoController {
 	
 	@GetMapping("/testRetry")
 	public String testRetry() {
+		logger.info("Enter testRetry at " + LocalTime.now());
 		try {
 			Thread.sleep(5000);
 		} catch (Exception e) {
-			
+
 		}
-		expService.createException();
+		logger.info("Exist testRetry at " + LocalTime.now());
 		return "Done";
 	}
 }
