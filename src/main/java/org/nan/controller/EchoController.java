@@ -121,7 +121,7 @@ public class EchoController {
 		logger.info("Enter testRetry at " + LocalTime.now());
 
 		logger.info("Exist testRetry at " + LocalTime.now());
-		return ResponseEntity.status(HttpStatus.BAD_GATEWAY).build();
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	}
 
 	@GetMapping("testRetryLongTimeout")
