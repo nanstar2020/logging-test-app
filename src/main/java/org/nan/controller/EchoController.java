@@ -134,6 +134,6 @@ public class EchoController {
 
 		}
 		logger.info("Exist testRetry at " + LocalTime.now());
-		return ResponseEntity.status(HttpStatus.OK).build();
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	}
 }
